@@ -15,37 +15,37 @@ import Event from "@components/components/events/Event";
 const eventsData = [
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
 	{
 		title: "Community Walk",
-		date: "Sun 19th Feb 2023",
+		date: "19th Feb 2023",
 		time: "10.00am",
 		location: "Gisburn Forest",
 	},
@@ -84,7 +84,8 @@ const EventPanels = () => {
 					dragConstraints={constraintsRef}
 					style={{ width: calcWidth, x: x }}
 					dragControls={controls}
-					dragTransition={{ bounceStiffness: 600, bounceDamping: 100 }}
+					//dragTransition={{ bounceStiffness: 600, bounceDamping: 100 }}
+					dragElastic={0.1}
 				>
 					{eventsData.map((item, index) => (
 						<Event
@@ -103,17 +104,12 @@ const EventPanels = () => {
 };
 
 const Section = styled(Flex)`
-
 	overflow-x: hidden;
-	padding
-
-
 `;
 const Container = styled.div`
 	position: relative;
 	height: 400px;
 	overflow-x: hidden;
-	padding: 0 2rem;
 `;
 const OverflowContainer = styled(motion.div)`
 	height: 100%;
@@ -122,7 +118,13 @@ const OverflowContainer = styled(motion.div)`
 	justify-content: flex-start;
 	align-items: center;
 	cursor: grab;
-	gap: 40px;
+	gap: 32px;
+	& > div:first-of-type {
+		margin-left: 32px;
+	}
+	& > div:last-of-type {
+		margin-right: 32px;
+	}
 `;
 
 export default EventPanels;

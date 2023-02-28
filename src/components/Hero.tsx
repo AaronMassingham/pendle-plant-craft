@@ -5,13 +5,12 @@ import { Flex, Box, Button, Heading, Text } from "@chakra-ui/react";
 
 const Hero = () => {
 	return (
-		<Grid h="100vh" pt={24}>
+		<Grid h={{ base: "calc(100vh - 56px)", md: "100vh" }} pt={24}>
 			<Box
+				mt={{ base: 0, md: "-10rem" }}
 				backgroundColor={{ base: "white", md: "transparent" }}
 				className="constrain"
-				h={{ base: "45vh", md: "max-content" }}
-				mb={{ md: 20 }}
-				mt={{ base: 10 }}
+				h={{ base: "40vh", md: "max-content" }}
 				zIndex={5}
 				maxW={{ base: "100%", md: "65%" }}
 				placeSelf={{ base: "start start", md: "center start" }}
@@ -35,30 +34,16 @@ const Hero = () => {
 				</CustomHeading>
 
 				<Box as={Flex} gap={4} mt={8}>
-					<Button
-						borderColor="brand.500"
-						variant="outline"
-						borderRadius={32}
-						borderWidth={2}
-						fontSize="sm"
-					>
+					<Button variant="outline" size={{ base: "sm", md: "lg" }}>
 						Our Community
 					</Button>
-					<Button
-						background="brand.500"
-						color="white"
-						variant="solid"
-						borderRadius={32}
-						fontSize="sm"
-					>
-						Events
-					</Button>
+					<Button size={{ base: "sm", md: "lg" }}>Events</Button>
 				</Box>
 			</Box>
-			<Box
+			<_Box
 				w="100%"
 				mr={{ md: "-50%" }}
-				h={{ base: "40vh", md: "fill-available" }}
+				h={{ base: "45vh", md: "100%" }}
 				position="relative"
 				placeSelf={{ base: "end end", md: "center end" }}
 			>
@@ -66,23 +51,37 @@ const Hero = () => {
 					src="/hero-image.webp"
 					alt="PPC video thumbnail"
 					placeholder="empty"
-					quality={50}
+					quality={90}
 					priority
 					fill
-					style={{ objectFit: "cover" }}
 				/>
-			</Box>
+			</_Box>
 		</Grid>
 	);
 };
 
+const _Box = styled(Box)`
+	img {
+		object-fit: cover;
+		@media screen and (min-width: 768px) {
+			border-radius: 1rem 0 0 0;
+		}
+	}
+`;
 const WhiteSpace = styled.span`
-	background-color: #fff;
-
-	box-shadow: 0.5rem 0 0 #fff, -0.5rem 0 0 #fff;
 	padding: 0.5rem 0;
-	line-height: 1.5;
 	border: none;
+	@media screen and (min-width: 768px) {
+		background-color: #fff;
+		box-shadow: 0.5rem 0 0 #fff, -0.5rem 0 0 #fff;
+		line-height: 1.6;
+	}
+	@media screen and (min-width: 960px) {
+		line-height: 1.5;
+	}
+	@media screen and (min-width: 1200px) {
+		line-height: 1.4;
+	}
 `;
 const CustomHeading = styled(Heading)`
 	white-space: pre-wrap;

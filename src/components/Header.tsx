@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 import { Flex, Box } from "@chakra-ui/react";
@@ -8,6 +8,16 @@ import Social from "./Social";
 import Logo from "./svg/Logo";
 
 const Header = () => {
+	const [small, setSmall] = useState(false);
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			window.addEventListener("scroll", () =>
+				setSmall(window.pageYOffset > 100)
+			);
+		}
+	}, []);
+
 	return (
 		<_Flex
 			as="header"
@@ -16,9 +26,11 @@ const Header = () => {
 			alignItems="center"
 			px={8}
 			h={24}
-			bg="white"
+			bg="rgba(255,255,255,.8)"
+			backdropFilter="auto"
+			backdropBlur="4px"
 		>
-			<Logo />
+			<Logo isSmall={small} />
 			<Social />
 		</_Flex>
 	);

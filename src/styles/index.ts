@@ -20,13 +20,47 @@ const theme = extendTheme({
         body: `'Open Sans', sans-serif`
     },
     components: {
-    Button: {
-      baseStyle: {
-        fontWeight: 400,
-        p:6 
+      Button: {
+        baseStyle: {
+          fontWeight: 400,
+          
+          borderRadius:32
+        },
+        sizes: {
+          sm: {
+            p:5,
+            fontSize: 'sm',
+          },
+          lg: {
+            p:6,
+            fontSize: 'md',
+          },
+        },
+        variants: {
+          outline: {
+            border: '2px solid',
+            borderColor: 'brand.500',
+            color: 'brand.500',
+            _hover: {
+              bg: 'brand.500',
+              color: '#FFF',
+            },
+          },
+          solid: {
+            bg: 'brand.500',
+            color: '#FFF',
+            border: '2px solid',
+            borderColor: 'brand.500',
+            _hover: {
+              bg: 'transparent',
+              color: 'brand.500',
+              border: '2px solid',
+              borderColor: 'brand.500',
+            },
+          },
+        },
       },
-    }
-  }
+    },
   })
 
 

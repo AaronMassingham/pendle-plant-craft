@@ -10,6 +10,7 @@ import TextPanel from "@components/components/TextPanel";
 import VideoThumb from "@components/components/VideoThumb";
 import AnimatedStroke from "@components/components/svg/AnimatedStroke";
 import Background from "@components/components/svg/Background";
+import DragIndicator from "@components/components/svg/DragIndicator";
 
 export default function Home() {
 	return (
@@ -58,13 +59,14 @@ export default function Home() {
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
 					>
-						Working towards a more symbiotic relationship with our surroundings,
-						nature and each other.
+						Learning together, towards a more symbiotic relationship with our
+						surroundings, nature and each other
 					</motion.div>
 				</Heading>
 				<AnimatedStroke />
 			</TextPanel>
 			<VideoThumb />
+			<DragIndicator />
 		</>
 	);
 }

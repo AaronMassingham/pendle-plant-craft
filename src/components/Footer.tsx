@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Box, Flex, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Button, Grid } from "@chakra-ui/react";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Components
 import Copyright from "./Copyright";
 import Social from "./Social";
+import Logo from "./svg/Logo";
 
 const Footer = () => {
 	return (
@@ -19,10 +20,15 @@ const Footer = () => {
 				direction="row"
 				gap={16}
 				justifyContent="space-between"
+				alignItems="center"
 				className="constrain"
 			>
-				<Box width={{ base: "100%", md: "50%" }}>
-					<Flex direction="column" justifyContent="space-between" gap={16}>
+				<Box width={{ base: "100%", lg: "50%" }}>
+					<Flex
+						direction={{ base: "column", md: "row", lg: "column" }}
+						justifyContent="space-between"
+						gap={16}
+					>
 						<Box color="brand.100" className="stack">
 							<Heading as="h3" fontSize={{ base: "lg", lg: "xl", xl: "3xl" }}>
 								Join our community!
@@ -33,13 +39,7 @@ const Footer = () => {
 								plants, cultivation, and understanding of mental wellbeing can
 								have a huge impact on individuals and our local community.
 							</Text>
-							<Button
-								bg="brand.500"
-								variant="solid"
-								fontSize="sm"
-								borderRadius={32}
-								p={4}
-							>
+							<Button size={{ base: "sm", md: "lg" }}>
 								<Icon>
 									<FontAwesomeIcon icon={faFacebookF} />
 								</Icon>{" "}
@@ -59,14 +59,16 @@ const Footer = () => {
 						</Box>
 					</Flex>
 				</Box>
-				<Box
-					display={{ base: "none", md: "block" }}
+				<Grid
+					display={{ base: "none", lg: "grid" }}
 					px={{ base: 8, md: 16, lg: 24 }}
 					width={{ base: "100%", md: "50%" }}
-					bg="red"
+					maxW={500}
+					opacity={0.2}
+					placeItems="center"
 				>
-					Image
-				</Box>
+					<Logo invertColor fillSpace />
+				</Grid>
 			</Container>
 			<Copyright />
 		</>

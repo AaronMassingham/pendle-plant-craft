@@ -40,7 +40,7 @@ const VideoThumb = () => {
 						src="/video-thumb.webp"
 						alt="PPC video thumbnail"
 						placeholder="empty"
-						quality={50}
+						quality={100}
 						priority
 						fill
 						style={{ objectFit: "cover", borderRadius: "1rem" }}
